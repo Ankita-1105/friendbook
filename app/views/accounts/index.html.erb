@@ -1,0 +1,78 @@
+<div class="container">
+	<div class="row ">
+
+		<div class="col-md-8">
+			<% @post.each do |post| %>
+				<div class="insta-post">
+					<div class="post-meta ">
+						<% if post.account.image.thumb.url %>
+						  <%= image_tag post.account.image.thumb.url, width: "40px", height: "40px",:class =>  "profile_image" %>
+						<% else %>
+						<%= image_tag "user-alt-512.webp", width: "40px", height: "40px",:class =>  "profile_image" %>
+					<% end %>
+						<%= link_to post.account.username, profile_path(post.account.username),:class => "text-dar" %>
+					
+						
+         <div style="margin-top: 2% ">
+         	<div>
+         			<%= simple_format post.description %>
+         	</div>
+					<%= image_tag post.image.url , width: "100%", height: "400px" %>
+				</div>
+      </div>
+         
+
+			<div class="post-details">
+				<div class="post-actions">
+          <i class= "fa fa-thumbs-up like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-2x post-like" data-id="<%= post.id %>" aria-hidden="true"></i>
+
+          <%= link_to post_path(post.id)  do %>
+          	<i class="fa fa-comment fa-2x  post-comment"></i> 
+          <% end %>  
+
+          <i><p class="text-muted" style=" float: right;"><%= time_ago_in_words post.created_at %> ago</p></i> 
+        </div>
+        
+				<p><strong style="margin-left: 15px;" id="post-<%= post.id %>-likes"><%= post.total_likes_count %>  Likes</strong></p>
+				<p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username),:class => "text-dar" %></strong></p>
+				<%= render "posts/comments", post: post %>
+			</div>
+
+			
+			<div class="comment-box">
+				<%= form_for @comment do |f| %>
+
+					<%= f.hidden_field :post_id, value: post.id %>
+					<div class="input-group-append">
+							<%= f.text_field :comment, placeholder: "Add comment here......", :class => "form-control post-comment" %>
+						<div class="input-group-append">
+							<%= f.submit "Post", class: "btn btn-success float-right" %>
+						</div>
+					</div>
+
+				<% end %>
+			</div>
+
+		</div>	
+	<% end %>
+</div>
+
+		<div class="col-md-4">
+			<div class="account-summary">
+				<p>
+					<%= image_tag current_account.image.thumb.url if current_account.image.thumb.url.present? %> 
+					<strong><%= link_to current_account.username, profile_path(current_account.username) %></strong>
+					<br>
+					<%= current_account.full_name %>
+				</p>	
+			</div>
+
+			<div class="follower-suggestions">
+				<%= link_to "View All", "#", :class => "float-right" %>
+				<p class="text-muted"><strong>Suggestion For You</strong></p>
+				<%= render "accounts/follower_suggestions" %>
+				
+			</div>
+		</div>
+</div>
+	

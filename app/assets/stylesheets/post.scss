@@ -1,0 +1,68 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.insta-post{
+	margin-bottom: 20px;
+}
+
+.post-meta{
+	
+	background: #fff;
+	text-align: left;
+	font-weight: bold;
+	padding: 15px;
+	border: 1px solid #ddd;
+
+	img{
+	margin-right: 10px;
+	}
+}
+
+.post-details{
+	
+	background: #fff;
+	padding: 7px;
+	border: 1px solid #ddd;
+}
+.post-actions{
+	
+
+	i{
+		margin-left: 15px;
+		color: #ddd;
+		cursor: pointer;
+	}
+
+	i:hover{
+		color: #999;
+	}
+
+	i.active{
+		color:#396CE1
+	}
+}
+
+.comment-box{
+	padding: 15px;
+	background: #fff;
+	border: 1px solid #ddd;
+}
+
+.post-comment:focus{
+	box-shadow: none !important;
+}
+
+.comments-feed{
+	height: 100px;
+	overflow: scroll;
+
+}
+
+.post-details post-actions{
+	border-top: 1px solid #ddd;
+	padding_top: 20px;
+	margin-top: 20px;
+}
+
+
+

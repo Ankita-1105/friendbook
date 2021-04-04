@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-4">	
+			<div class="img-responsive">
+				<%= profile_picture @account, 200, 200 %>
+   			</div>
+		</div>
+
+		<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-6" style="float: left;">
+					<h2><%= @account.full_name %></h2>
+				</div>	
+				<div class="col-md-2" style="padding-top: 20px">
+					<%= link_to "Edit Profile", edit_account_registration_path, :class => "btn btn-default" if can_edit_profile?(@account.id) %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			
+		</div>
+		<div class="col-md-8">
+			<div class="col-md-2"><%= @account.posts.count %> posts</div>
+			<div class="col-md-2"><%= @account.total_followers %>  followers</div>
+			<div class="col-md-2"><%= @account.total_following %>  following</div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			
+		</div>
+		<div class="col-md-8">
+			<p><%= @account.username %></p>
+				<%= simple_format @account.description %>
+			<p><%= link_to @account.website if @account.website.present? %></p>
+		</div>
+	</div>
+	</div>
+	<hr>
+
+	<div class="container">
+		<div class="row">
+			<% @post.each do |post| %>
+					
+
+			<div class="col-md-3"  style="margin-top: 20px;margin-left: 20px;">
+				
+						<%= link_to image_tag(post.image.url, width: "100%", height: "250px"), post_path(post) %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+
+
+
+

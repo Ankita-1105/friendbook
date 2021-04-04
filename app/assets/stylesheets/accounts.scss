@@ -1,0 +1,31 @@
+ // Place all the styles related to the Accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+	background: #fafafa !important;
+}
+
+.account-summary{
+	text-align: left;
+	margin-bottom: 20px;
+
+}
+
+.follower-suggestions{
+	background: #fff;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+}
+
+.profile_image{
+	border-radius: 50%;
+}
+
+.profile_stats{
+	width: 200px;
+	float: right;
+}
