@@ -46,7 +46,7 @@
 						<%= render "posts/comments", post: @post %>
 				  	</div>
 				  	<div class="post-actions">
-				        <i class="fa fa-thumbs-up like-<%= @post.id %> <%='active' if post_liked_by_user?(@post.id) %> fa-2x post-like" data-id="<%= @post.id %>"></i>
+				        <i class="fa fa-thumbs-up like-<%= @post.id %> <%='active' if post_liked_by_user?(@post.id) %> fa-4x post-like" data-id="<%= @post.id %>"></i>
 				     
 				        <i class="fa fa-commenting fa-2x post-comment"  id="post-comment"></i> 
 			        </div>

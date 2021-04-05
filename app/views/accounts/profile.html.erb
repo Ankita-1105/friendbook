@@ -24,8 +24,10 @@
 		</div>
 		<div class="col-md-8">
 			<div class="col-md-2"><%= @account.posts.count %> posts</div>
-			<div class="col-md-2"><%= @account.total_followers %>  followers</div>
-			<div class="col-md-2"><%= @account.total_following %>  following</div>
+			<div class="col-md-2"><%= link_to "Follower", follower_path %></div>
+			<div class="col-md-2"><%= link_to "Following", following_path %></div>		
+			
+			
 		</div>
 	</div>
 	<br>

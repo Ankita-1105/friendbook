@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get "post/like/:post_id" => "likes#save_like", as: :like_post
   post "follow/account" =>  "accounts#follow_account", as: :follow_account
 
+  get "follower" => "accounts#follower"
+  get "following" => "accounts#following"
+
   root to: "public#homepage"
 
   resources :posts, only: [:new, :create, :show]

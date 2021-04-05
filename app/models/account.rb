@@ -1,6 +1,8 @@
 class Account < ApplicationRecord
-  has_many :posts
+  has_many :posts, dependent:   :destroy
   has_many :likes
+
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,6 +17,7 @@ class Account < ApplicationRecord
 
   def total_followers
   	Follower.where(follower_id: self.id).count
+    
   end
 
   def total_following

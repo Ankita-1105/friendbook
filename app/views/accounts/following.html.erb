@@ -1,0 +1,21 @@
+<div class="container">
+<div class="row">
+	<div class="col-md-5">
+
+	</div>
+	<div class="col-md-4">
+		<div class="account-summary">
+			<p>
+				<%= image_tag current_account.image.thumb.url if current_account.image.thumb.url.present? %> 
+				<strong><%= link_to current_account.username, profile_path(current_account.username) %></strong>
+				<br>
+				
+			</p>	
+		</div>
+		<hr>	
+
+		<%= get_following(current_account)%>
+	</div>
+
+</div>
+</div>

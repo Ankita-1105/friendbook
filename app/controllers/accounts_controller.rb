@@ -8,7 +8,6 @@ class AccountsController < ApplicationController
 
 		follower_ids = Follower.where(follower_id: current_account.id).map(&:following_id)
 		follower_ids << current_account.id
- 
 		@post = Post.includes(:account).where(account_id: follower_ids).active
 		@comment = Comment.new
 
@@ -33,6 +32,12 @@ class AccountsController < ApplicationController
 			flash[:danger] = "Unable to add follower"
 		end	
 		redirect_to dashboard_path
+	end
+
+	def follower
+	end
+
+	def follower
 	end
 
 	private
