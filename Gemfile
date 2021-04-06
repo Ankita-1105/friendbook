@@ -7,7 +7,7 @@ gem 'pg'
 gem 'devise'
 gem 'jquery-rails'
 gem 'carrierwave'
-gem 'fog'
+
 gem 'mini_magick'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
